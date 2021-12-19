@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Необязательное задание.
+
+Необходимо реализовать функцию, которая будет принимать первым аргументом
+целое положительное число, в следующих трех аргументах функция принимает слова
+в разных склонениях.
+Функция должна возвращать одно из трех переданных в параметры слов подходящее
+под число, которое передано первым аргументом.
+
+Пример:
+console.log(declinationOfNumber(1, "яблоко", "яблока", "яблок")); // "яблоко"
+console.log(declinationOfNumber(2, "мяч", "мяча", "мячей")); // "мяча"
+console.log(declinationOfNumber(5, "стул", "стула", "стульев")); // "стульев"
+
+Функция должна работать с любым словом и любым целым положительным числом.
+Все аргументы, которые будут передаваться функции будут верны.
+-->
+<script>
+  "use strict";
+
+  function declinationOfNumber(n, word1, word2, word3) {
+    let ns = String(n);
+    if (n == 1) {
+      return word1;
+    } else if (n >= 2 && n <= 4) {
+      return word2;
+    } else if (n >= 5 && n <= 20) {
+      return word3;
+    } else if (n > 20) {
+      if ((Number(ns[ns.length-2]) == 0) || (Number(ns[ns.length-2]) >=2 && Number(ns[ns.length-2]) <=9)) {
+        if (Number(ns[ns.length-1]) == 1) {
+          return word1;
+        } else if ((Number(ns[ns.length-1]) >= 2) && (Number(ns[ns.length-1]) <= 4)) {
+          return word2;
+        }
+      } else if (Number(ns[ns.length-2]) == 1) {
+        return word3;
+      }
+    }
+  }
+
+console.log(declinationOfNumber(121, "яблоко", "яблока", "яблок"));
+console.log(declinationOfNumber(222, "мяч", "мяча", "мячей"));
+console.log(declinationOfNumber(319, "стул", "стула", "стульев"));
+
+</script>
+</body>
+</html>
